@@ -5,10 +5,11 @@ import org.json.JSONArray
 // Movie class represents a movie object to be displayed in the UI
 data class Movie (
     val movieID: Int,
-    val posterPath: String,
+    private val posterPath: String, // as what we care is about the posterImageUrl and no this parameter it is set to private
     val title: String,
     val overview: String,
 ){
+    val posterImageUrl = "https://image.tmdb.org/t/p/w342/$posterPath"
     companion object{
         fun fromJsonArray(movieJsonArray: JSONArray): List<Movie>{
             val movies = mutableListOf<Movie>()
